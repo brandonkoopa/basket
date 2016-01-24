@@ -1,0 +1,238 @@
+//  Basket app
+
+html {
+  font-smoothing: antialiased;
+  height: 100%;
+}
+
+body {
+  background-color: $page-background-color;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: $white;
+}
+
+ul {
+  list-style: none;
+}
+
+.form-input,
+.item-to-add,
+.item-to-get,
+.comments {
+  border: 1px solid transparent;
+  border-radius: .5rem;
+  font: 1em sans-serif;
+  outline: none;
+  padding: .5em;
+  transition: all $animation-duration ease-out;
+
+  &:focus,
+  textarea:focus {
+    border: 1px solid $green;
+
+    &:hover {
+      border: 1px solid $orange;
+    }
+  }
+
+  &:hover,
+  textarea:hover {
+    border: 1px solid $orange;
+  }
+}
+
+button:focus {
+  outline: 0;
+}
+
+//  Angular way of hiding fields until their data has been loaded.
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none;
+}
+
+.items-filter {
+  margin-left: 2rem;
+
+  .btn:focus {
+    outline: 0;
+  }
+}
+
+.get-list {
+  height: auto;
+  margin-top: 1rem;
+  max-height: 65%;
+  overflow-y: scroll;
+  padding-left: 0;
+  width: 92%;
+
+  .btn-item-details {
+    background-color: transparent;
+    border: 0;
+    color: $dark-blue;
+    margin-top: .5rem;
+
+    &:hover {
+      color: $orange;
+    }
+
+    &.selected {
+      color: $orange;
+    }
+  }
+}
+
+.item-to-get {
+  background-color: transparent;
+  width: 82%;
+}
+
+.gotten-item {
+  text-decoration: line-through;
+}
+
+.basket {
+  background-image: url('img/bgBasket.gif');
+  display: table;
+  height: 6em;
+  margin: 0;
+  min-height: 2rem;
+  padding: .7rem;
+  width: 100%; // to not extend the belt all the way to the right
+}
+
+.basket-item {
+  color: $light-gray;
+  display: inline;
+  font-size: 2rem;
+  opacity: 0;
+  text-align: center;
+  transform: translateY(-10rem);
+
+  .emoji-food {
+    font-size: 280%;
+  }
+
+  &.selected {
+    opacity: 1;
+    transform: translateY(0);
+    transition: $animation-duration $advance-easing;
+  }
+}
+
+.app {
+  height: 100%;
+}
+
+
+section {
+  margin: 0 auto;
+  text-align: left;
+
+  &.content {
+    background-color: $body-bg-color;
+    border: 1px $med-gray solid;
+    height: 100%;
+  }
+
+  &.header {
+    background-color: $header-bg-color;
+    height: 7rem;
+    padding-left: 2rem;
+  }
+
+  &.get {
+    height: 55%;
+    padding: 2rem;
+
+    .remaining {
+      padding-left: 1rem;
+    }
+
+    .list-item {
+      border-bottom: 1px solid $med-light-gray;
+      padding: 0 .4rem;
+    }
+
+    .item-to-add {
+      margin: 1rem 1rem 0 2rem;
+      width: 75%;
+    }
+  }
+
+  &.gotten {
+    display: table;
+    height: 30%;
+    width: 100%;
+
+    .section-label {
+      padding: 2rem;
+    }
+  }
+}
+
+.comments {
+  background-color: transparent;
+  color: $dark-gray;
+  margin-bottom: 1rem;
+  margin-left: 1.4rem;
+  width: 40%;
+}
+
+.form-input {
+  margin: .5em 0;
+  width: 100%;
+}
+
+
+.menu-buttons {
+  margin-right: 2rem;
+}
+
+.btn-menu {
+  background-color: transparent;
+  border: 0;
+  margin: .8em 0 0 .5em;
+  transition: all $animation-duration ease-out;
+
+  &:hover {
+    background-color: $orange;
+    color: $white;
+
+    &:focus {
+      background-color: $orange;
+      color: $white;
+    }
+  }
+
+  &:focus {
+    background-color: transparent;
+    color: $white;
+  }
+}
+
+.section-label {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.btn-circle {
+  border-radius: 15px;
+  font-size: 12px;
+  height: 30px;
+  line-height: 1.42;
+  padding: 6px 0;
+  text-align: center;
+  width: 30px;
+}

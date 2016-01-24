@@ -1,0 +1,33 @@
+{
+  "name": "Basket",
+  "version": "1.0.0",
+  "description": "Basket!",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "basket"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-jslint": "^0.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-scss-lint": "^0.3.9",
+    "gulp-uglify": "^1.4.0",
+    "gulp-util": "^3.0.6",
+    "jshint-stylish": "^2.0.1",
+    "node-sass": "^3.4.2"
+  }
+}

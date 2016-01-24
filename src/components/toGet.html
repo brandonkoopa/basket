@@ -1,0 +1,52 @@
+<section class="get">
+    <span class="section-label">To Get</span>
+    <span class="remaining">{{togetCtrl.getRemaining()}} of {{app.Data.items.length}} remaining</span>
+
+    <div class="items-filter btn-group" dropdown>
+        <button id="split-button" type="button" class="btn btn-primary">Filter items by {{app.Data.ownerFilter}}
+        </button>
+        <button type="button" class="btn btn-primary" dropdown-toggle tooltip-placement="right"
+                tooltip="Select Person">
+            <span class="caret"></span>
+            <span class="sr-only">Split button!</span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
+            <li role="menuitem" ng-repeat="person in app.Data.people" ng-click="togetCtrl.ownerFilterSelect(person)">
+                <a href="">{{person}}</a></li>
+        </ul>
+    </div>
+
+    <div class="unstyled get-list">
+        <div class="list-item" ng-show="item.owner == app.Data.ownerFilter || app.Data.ownerFilter == 'Any'" ng-repeat="item in app.Data.items track by $index">
+            <input type="checkbox" ng-model="item.gotten" ng-change="togetCtrl.itemChecked($index)">
+            <input type="text" class="item-to-get gotten-{{item.gotten}}" ng-class="{'gotten-item': item.gotten}" ng-model="item.text" size="30" placeholder="Enter item">
+
+            <button class="btn-item-details glyphicon glyphicon-info-sign pull-right" ng-class="{'selected': item.open}" ng-click="togetCtrl.showDetails($index)" tooltip-placement="bottom" tooltip="Item Details"></button>
+            <button class="btn-item-details glyphicon glyphicon-trash pull-right" ng-click="togetCtrl.deleteItem($index)" tooltip-placement="bottom" tooltip="Remove Item"></button>
+
+            <div collapse="!item.open">
+
+                <div class="btn-group" dropdown>
+                    <button id="split-button" type="button" class="btn btn-primary">Item for {{item.owner}}</button>
+                    <button type="button" class="btn btn-primary" dropdown-toggle>
+                        <span class="caret"></span>
+                        <span class="sr-only">Split button!</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
+                        <li role="menuitem" ng-repeat="person in app.Data.people" ng-click="togetCtrl.itemPersonSelect(item, person)"><a href="">{{person}}</a></li>
+                    </ul>
+                </div>
+
+                <input type="text" class="comments"ng-model="item.comments" size="30" placeholder="Comments"/>
+            </div>
+        </div>
+    </div>
+
+    <form ng-submit="togetCtrl.addItem(app.inputItem); app.inputItem='';">
+        <input class="item-to-add" type="text" ng-model="app.inputItem"  size="30"
+               placeholder="Enter item to add">
+        <button class="btn-primary btn-circle" data-toggle="tooltip" tooltip-placement="right" tooltip="Add Item">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+    </form>
+</section>

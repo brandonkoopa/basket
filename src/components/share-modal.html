@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h3 class="modal-title">Share list</h3>
+</div>
+<div class="modal-body">
+    <form action="MAILTO:someone@example.com" method="post" enctype="text/plain">
+        <input class="form-input" type="text" name="input" ng-model="shareModal.Data.theirName" required
+               placeholder="Their name">
+        <input class="form-input" type="email" name="input" ng-model="shareModal.Data.emailAddress" required
+               placeholder="Email address to share Basket with">
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="shareModal.sendEmail()">Email</button>
+    <button class="btn btn-danger" type="button" ng-click="shareModal.cancel()">Cancel</button>
+</div>

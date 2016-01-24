@@ -1,0 +1,9 @@
+<section class="gotten" ng-controller="GottenController as gottenCtrl">
+    <span class="section-label">Gotten</span>
+    <ul class="basket">
+        <li class="basket-item" ng-repeat="item in app.Data.items track by $index"
+            ng-class="{'selected': item.gotten, 'unselected': !item.gotten}">
+            <span class="emoji-food" ng-show="item.gotten">{{app.Data.emojiFoodLib[item.text] || item.text}}</span>
+        </li>
+    </ul>
+</section>
